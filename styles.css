@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --background: #E7E7E7;
+    --text-primary: #080808;
+    --clock-frame-diameter: 300px;
+    --clock-frame-border: 20px;
+    --hands-width: 1vh;
+    --hour-hand-height: 30vh;
+    --minute-hand-height: 35vh;
+    --second-hand-height: 40vh;
+    --rotation: 0;
+    --sunrise-angle: 90deg;
+    --sunset-angle: 270deg;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-image: conic-gradient(
+        var(--text-primary) calc(var(--sunrise-angle) - 10deg), 
+        var(--background) var(--sunrise-angle), 
+        var(--background) calc(var(--sunset-angle) - 10deg),
+        var(--text-primary) var(--sunset-angle)
+    );
+    top: 0;
+}
+
+.mono {
+    font-family: "Fragment Mono", monospace;
+    font-style: normal;
+    transform: rotate(calc(var(--rotation) * -1deg)) translateZ(0);
+}
+
+/* .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    padding: 2rem;
+} */
+
+.hand {
+    outline: 0.5rem solid white;
+    height: 40vh;
+    mix-blend-mode: difference;
+    position: absolute;
+    left: 50%;
+    bottom: 50vh;
+    transform-origin: bottom;
+    transform: rotate(calc(var(--rotation) * 1deg)) translateZ(0);
+}
+
+.marker {
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -50%);
+}
+
+#midnight, #sunset {
+    color: var(--background);
+}
+
+#sunrise, #noon {
+    color: var(--text-primary);
+}
