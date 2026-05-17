@@ -22,6 +22,7 @@
 body {
     margin: 0;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     background-image: conic-gradient(
         var(--text-primary) calc(var(--sunrise-angle) - 10deg), 
@@ -38,22 +39,15 @@ body {
     transform: rotate(calc(var(--rotation) * -1deg)) translateZ(0);
 }
 
-/* .center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    justify-content: space-between;
-    padding: 2rem;
-} */
-
 .hand {
     outline: 0.5rem solid white;
     height: 40vh;
+    height: calc(var(--vh, 1vh) * 40);
     mix-blend-mode: difference;
     position: absolute;
     left: 50%;
     bottom: 50vh;
+    bottom: calc(var(--vh, 1vh) * 50);
     transform-origin: bottom;
     transform: rotate(calc(var(--rotation) * 1deg)) translateZ(0);
 }
