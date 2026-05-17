@@ -55,7 +55,7 @@ async function getSunTime() {
 // some of the worst code I've ever written tbh
 
 function setClock(sunrise, sunset) {
-    console.log(sunrise, sunset);
+    // console.log(sunrise, sunset);
     let sunriseSeconds = (sunrise.getHours()*3600) + (sunrise.getMinutes()*60) + sunrise.getSeconds();
     let sunsetSeconds = (sunset.getHours()*3600) + (sunset.getMinutes()*60) + sunset.getSeconds();
     // console.log(sunriseSeconds, sunsetSeconds);
@@ -100,13 +100,13 @@ function setClock(sunrise, sunset) {
         let now = new Date();
         let nowSeconds = (now.getHours()*3600) + (now.getMinutes()*60) + now.getSeconds();
         let nowAngle = (nowSeconds / 86400) * 360;
-        console.log(nowAngle, sunriseAngle, sunsetAngle);
+        // console.log(nowAngle, sunriseAngle, sunsetAngle);
 
         hand.style.setProperty('--rotation', midnightAngle);
 
         let quadrant1 = sunriseAngle - midnightAngle;
         let quadrant2 = 180 - sunriseAngle + midnightAngle;
-        console.log(quadrant2);
+        // console.log(quadrant2);
 
         if (nowAngle >= 0 && nowAngle <= 90) {
             hand.style.setProperty('--rotation', midnightAngle + ((nowAngle / 90) * quadrant1));
